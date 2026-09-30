@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <meta name="description"
-        content="ABEMA Comment Viewer RTの紹介・配布サイト。Windows版・Android版のダウンロード情報、更新履歴、使い方をご案内します。">
-  <title>ABEMA Comment Viewer RT｜紹介・ダウンロード</title>
+  <meta name="description" content="ABEMAのリアルタイムコメントを快適に閲覧・投稿。ABEMA Comment Viewer RTのWindows版・Android版の紹介、配布情報、更新履歴を掲載しています。">
+  <title>ABEMA Comment Viewer RT｜Windows・Android</title>
   <style>
     :root {
       --bg: #15181e;
@@ -16,10 +15,8 @@
       --accent: #93c5fd;
       --border: #353e4d;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       background: var(--bg);
@@ -29,21 +26,17 @@
       line-height: 1.9;
       overflow-wrap: anywhere;
     }
-
     a { color: var(--accent); }
     a:hover { text-decoration: underline; }
     a:focus-visible {
       outline: 3px solid var(--accent);
       outline-offset: 5px;
     }
-
     .wrap {
       width: min(100% - 40px, 1000px);
       margin-inline: auto;
     }
-
     header { border-bottom: 1px solid var(--border); }
-
     .header-inner {
       display: flex;
       align-items: center;
@@ -52,22 +45,18 @@
       gap: 12px 24px;
       padding-block: 18px;
     }
-
     .brand {
       color: var(--text);
       font-weight: 700;
       text-decoration: none;
     }
-
     nav {
       display: flex;
       flex-wrap: wrap;
       gap: 8px 20px;
       font-size: 14px;
     }
-
     nav a { color: var(--muted); text-decoration: none; }
-
     .hero { padding: 78px 0 64px; }
     .eyebrow {
       color: var(--accent);
@@ -75,15 +64,13 @@
       font-weight: 700;
       letter-spacing: .15em;
     }
-
     h1 {
       margin: 16px 0;
       font-size: clamp(30px, 6vw, 52px);
       line-height: 1.3;
       letter-spacing: -.03em;
     }
-
-    .lead { max-width: 640px; color: var(--muted); }
+    .lead { max-width: 680px; color: var(--muted); }
     .button {
       display: inline-block;
       margin-top: 20px;
@@ -94,33 +81,32 @@
       font-weight: 700;
       text-decoration: none;
     }
-
     .button:hover {
       background: #b5d8ff;
       text-decoration: none;
     }
-
     section { padding: 32px 0; scroll-margin-top: 24px; }
     h2 { margin: 0 0 20px; font-size: 24px; }
     h3 { margin: 0 0 12px; font-size: 21px; }
+    h4 { margin: 24px 0 10px; font-size: 16px; }
     p { margin: 0 0 16px; }
     p:last-child { margin-bottom: 0; }
-
     .panel {
+      min-width: 0;
       padding: 28px;
       background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 16px;
     }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 20px;
+      align-items: start;
     }
-
     .muted { color: var(--muted); }
-
+    .small { font-size: 14px; }
+    .spaced { margin-top: 24px; }
     .badge {
       display: inline-block;
       padding: 3px 11px;
@@ -129,7 +115,6 @@
       color: var(--muted);
       font-size: 13px;
     }
-
     .platform {
       margin: 0 0 16px;
       color: var(--accent);
@@ -137,7 +122,6 @@
       font-weight: 700;
       letter-spacing: .1em;
     }
-
     .placeholder {
       display: grid;
       min-height: 180px;
@@ -149,13 +133,34 @@
       text-align: center;
       background: #191e26;
     }
-
     .screen-label { margin-top: 14px; font-weight: 700; }
-    .download-status { margin-top: 22px; }
-
-    ul { margin: 0; padding-left: 1.4em; }
+    .hash {
+      display: block;
+      margin-top: 8px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      font-family: Consolas, monospace;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+      user-select: all;
+    }
+    ul, ol { margin: 0; padding-left: 1.4em; }
     li + li { margin-top: 8px; }
-
+    .history { margin: 0; padding: 0; list-style: none; }
+    .history li + li {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .history time {
+      display: block;
+      color: var(--accent);
+      font-size: 14px;
+    }
+    .history strong { display: block; }
+    .history p { margin: 4px 0 0; color: var(--muted); }
     footer {
       margin-top: 48px;
       padding: 28px 0;
@@ -163,19 +168,18 @@
       color: var(--muted);
       font-size: 13px;
     }
-
     @media (max-width: 640px) {
       .grid { grid-template-columns: 1fr; }
       .hero { padding: 48px 0 32px; }
       .panel { padding: 22px; }
       nav { gap: 8px 16px; }
     }
-
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
     }
   </style>
 </head>
+
 <body id="top">
   <header>
     <div class="wrap header-inner">
@@ -192,27 +196,70 @@
 
   <main class="wrap">
     <div class="hero">
-      <p class="eyebrow">COMMENT VIEWER</p>
+      <p class="eyebrow">WINDOWS / ANDROID</p>
       <h1>ABEMA<br>Comment Viewer RT</h1>
       <p class="lead">
-        ABEMAのコメントを閲覧するためのアプリです。<br>
-        このサイトでは、アプリの紹介とWindows版・Android版の
-        配布情報をご案内します。
+        ABEMAのリアルタイムコメントを、<br>
+        パソコンでもスマートフォンでも快適に閲覧・投稿。🐸
       </p>
-      <a class="button" href="#download">ダウンロード情報を見る</a>
+      <span class="badge">Windows版 RC4</span>
+      <span class="badge">Android版 v0.97</span>
+      <div>
+        <a class="button" href="#download">ダウンロード情報を見る</a>
+      </div>
     </div>
 
     <section id="about" aria-labelledby="about-title">
       <h2 id="about-title">アプリについて</h2>
-      <div class="panel">
-        <p>
-          ABEMA Comment Viewer RTは、ABEMAのコメントを
-          閲覧するためのコメントビューアです。
-        </p>
-        <p class="muted">
-          詳しい機能や使い方、対応環境は、
-          各バージョンの配布開始に合わせて掲載します。
-        </p>
+      <div class="grid">
+        <article class="panel">
+          <p class="platform">WINDOWS</p>
+          <h3>Windows版</h3>
+          <p>
+            ABEMAのリアルタイムコメントをWindowsで快適に
+            閲覧・投稿できる、多機能コメントビューアです🐸
+          </p>
+          <h4>主な機能</h4>
+          <ul>
+            <li>リアルタイムコメント表示</li>
+            <li>コメント投稿</li>
+            <li>ログ保存・検索</li>
+          </ul>
+          <h4>動作環境</h4>
+          <p>
+            Windows 10 / 11<br>
+            インストール不要のポータブル版です。
+          </p>
+        </article>
+
+        <article class="panel">
+          <p class="platform">ANDROID</p>
+          <h3>Android版</h3>
+          <p>
+            ABEMAのリアルタイムコメントをAndroidで快適に
+            閲覧・投稿できる、モバイル用コメントビューアです🐸
+          </p>
+          <h4>主な機能</h4>
+          <ul>
+            <li>リアルタイムコメント表示</li>
+            <li>コメント投稿</li>
+            <li>コメント追随機能</li>
+            <li>通信節約機能</li>
+            <li>画面焼け対策</li>
+          </ul>
+          <h4>動作環境</h4>
+          <p><strong>推奨：Android 12以降</strong></p>
+          <p class="muted small">
+            Android 11以前では、端末のWebView / Chrome環境によって、
+            トークンを取得できない場合があります。
+            古い端末でも動作する可能性はありますが、動作保証はありません。
+          </p>
+          <p class="muted small">
+            動作確認：Pixel 9aなど。<br>
+            タブレットは数年前のAmazon Fire 10で動作確認しています。<br>
+            本アプリは縦画面専用です。
+          </p>
+        </article>
       </div>
     </section>
 
@@ -231,53 +278,195 @@
     </section>
 
     <section id="download" aria-labelledby="download-title">
-      <h2 id="download-title">ダウンロード</h2>
+      <h2 id="download-title">ダウンロード・導入方法</h2>
       <div class="grid">
         <article class="panel">
           <p class="platform">WINDOWS</p>
-          <h3>Windows版</h3>
+          <h3>Windows版 RC4</h3>
           <p class="muted">
-            Portable ZIP形式で配布予定です。
-            公開時にバージョンと導入手順を掲載します。
+            更新日：2026年9月30日<br>
+            対応OS：Windows 10 / 11<br>
+            配布形式：Portable ZIP
           </p>
-          <!-- 配布開始時にZIPへのリンクを追加します -->
-          <p class="download-status">
-            <span class="badge">ダウンロード準備中</span>
+          <p class="small">
+            ファイル名：<br>
+            ABEMA Comment Viewer RT RC4.zip
           </p>
+
+          <!-- ZIP公開後にダウンロードリンクを追加 -->
+          <p class="spaced">
+            <span class="badge">このサイトでのダウンロードは準備中</span>
+          </p>
+
+          <h4>導入方法</h4>
+          <p>
+            ZIPファイルをダウンロードして展開し、
+            展開先にあるアプリのEXEファイルを起動してください。
+            インストールは不要です。
+          </p>
+
+          <h4>EXEファイルの検査結果</h4>
+          <p class="muted small">
+            本ソフトはPyInstallerで生成しているため、
+            一部のセキュリティソフトでヒューリスティック検出される場合があります。
+          </p>
+          <p>
+            <a href="https://www.virustotal.com/gui/file/4911150f1f046ce52eb4eea680c2315098d47e9227407969f3fbf5f023d06764?nocache=1">
+              VirusTotalでEXEの検査結果を確認
+            </a>
+          </p>
+          <p class="muted small">
+            検査対象は、配布ZIP内のEXEファイルです。
+          </p>
+
+          <h4>配布ZIPのSHA-256</h4>
+          <p class="muted small">
+            対象：ABEMA Comment Viewer RT RC4.zip
+          </p>
+          <code class="hash">C6230CEC4AD1B7CEC6AF6F2BA72AB1E7F3D447C55006A60D1023F3024884D254</code>
         </article>
 
         <article class="panel">
           <p class="platform">ANDROID</p>
-          <h3>Android版</h3>
+          <h3>Android版 v0.97</h3>
           <p class="muted">
-            APK形式で配布予定です。
-            公開時に対応するAndroidのバージョンと導入手順を掲載します。
+            更新日：2026年9月30日<br>
+            推奨環境：Android 12以降<br>
+            配布形式：APK
           </p>
-          <!-- 配布開始時にAPKへのリンクを追加します -->
-          <p class="download-status">
-            <span class="badge">ダウンロード準備中</span>
+          <p class="small">
+            ABEMA Comment Viewer RT for Android v0.97
           </p>
+          <p class="muted">
+            APKは、現在こちらのAndroid版サイトからご案内しています。
+          </p>
+          <a class="button" href="https://nibuchan.carrd.co/">
+            Android版の配布サイトへ
+          </a>
+
+          <h4>インストール方法</h4>
+          <ol>
+            <li>Android端末でAPKをダウンロードします。</li>
+            <li>
+              Androidの設定で、APKを開くアプリに対して
+              「不明なアプリのインストール」を許可します。
+            </li>
+            <li>ダウンロードしたAPKを開き、インストールします。</li>
+          </ol>
+
+          <h4>ダウンロード時の警告について</h4>
+          <p class="muted small">
+            Chromeなどで「危険なファイルの可能性があります」といった
+            警告が表示される場合があります。
+            Google Playストア外で配布しているAPKでは、
+            このような警告が表示されることがあります。
+          </p>
+          <p class="muted small">
+            確認用に、配布APKのSHA-256とVirusTotalの検査結果を掲載しています。
+          </p>
+          <p>
+            <a href="https://www.virustotal.com/gui/file/d1f6e6f0481f0e55e4b6d7ec22c9d52f5edfb8720ed35b592da4dffc62d399b6?nocache=1">
+              VirusTotalでAPKの検査結果を確認
+            </a>
+          </p>
+
+          <h4>配布APKのSHA-256</h4>
+          <p class="muted small">対象：Android版 v0.97</p>
+          <code class="hash">D1F6E6F0481F0E55E4B6D7EC22C9D52F5EDFB8720ED35B592DA4DFFC62D399B6</code>
         </article>
       </div>
     </section>
 
     <section id="history" aria-labelledby="history-title">
       <h2 id="history-title">更新履歴</h2>
-      <div class="panel">
-        <p class="muted">
-          各バージョンの配布開始後に、
-          変更点や修正内容をこちらへ掲載します。
-        </p>
+      <div class="grid">
+        <div class="panel">
+          <h3>Windows版</h3>
+          <ul class="history">
+            <li>
+              <time datetime="2026-09-30">2026/09/30</time>
+              <strong>RC4</strong>
+              <p>チャンネル表示・トークン周りの表示などを変更。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-29">2026/09/29</time>
+              <strong>RC3</strong>
+              <p>絵文字表示を調整。スリープ復帰時の挙動などを変更。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-27">2026/09/27</time>
+              <strong>RC2.1</strong>
+              <p>一部機能を削除。ウィンドウ位置がずれる場合があった問題を修正。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-25">2026/09/25</time>
+              <strong>RC1.5</strong>
+              <p>NGユーザー管理画面などを追加。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-24">2026/09/24</time>
+              <strong>RC1 改訂ビルド</strong>
+              <p>Windows製品情報を追加。UPXを無効化。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-23">2026/09/23</time>
+              <strong>RC1</strong>
+              <p>インストール不要のポータブル版を公開。</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>Android版</h3>
+          <ul class="history">
+            <li>
+              <time datetime="2026-09-30">2026/09/30</time>
+              <strong>v0.97</strong>
+              <p>細かな不具合を修正。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-30">2026/09/30</time>
+              <strong>v0.96</strong>
+              <p>コメント入力周りを調整。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-29">2026/09/29</time>
+              <strong>v0.95</strong>
+              <p>タブレットモードなどを追加。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-28">2026/09/28</time>
+              <strong>v0.81</strong>
+              <p>設定画面を変更。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-26">2026/09/26</time>
+              <strong>v0.80</strong>
+              <p>ひっそりとAndroid版を公開しました。</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <section id="notes" aria-labelledby="notes-title">
       <h2 id="notes-title">注意事項</h2>
       <div class="panel">
+        <h3>配布・リンクについて</h3>
+        <p>
+          本ソフトの二次配布、およびZIP・APKなどの配布ファイルへの
+          直接リンクは禁止です。
+        </p>
+        <p>
+          本アプリをご紹介いただく際は、
+          必ず各配布サイトのトップページへリンクしてください。
+        </p>
+
+        <h3 class="spaced">本ソフトについて</h3>
         <ul>
           <li>
-            本アプリは非公式のアプリです。
-            ABEMAの運営元が提供するものではありません。
+            本ソフトはABEMA非公式の個人制作アプリです。
+            ABEMAおよび運営会社とは関係ありません。
           </li>
           <li>
             ABEMA側の仕様変更などにより、
