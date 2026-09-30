@@ -177,6 +177,38 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
     }
+    .screenshot-group + .screenshot-group { margin-top: 24px; }
+    .screenshot-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .screenshot-pair figure { min-width: 0; margin: 0; }
+    .screenshot-link {
+      display: block;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg);
+      cursor: zoom-in;
+    }
+    .screenshot-link:hover { border-color: var(--accent); }
+    .screenshot-link img {
+      display: block;
+      width: 100%;
+      height: 460px;
+      object-fit: contain;
+    }
+    .screenshot-pair figcaption {
+      margin-top: 10px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+    @media (max-width: 560px) {
+      .screenshot-pair { grid-template-columns: 1fr; }
+      .screenshot-link img { height: min(70vh, 460px); }
+    }
   </style>
 </head>
 
@@ -256,7 +288,7 @@
           </p>
           <p class="muted small">
             動作確認：Pixel 9aなど。<br>
-            タブレットは数年前のAmazon Fire 10で動作確認しています。<br>
+            タブレットモードは、現在は基本未対応です。<br>
             本アプリは縦画面専用です。
           </p>
         </article>
@@ -265,14 +297,39 @@
 
     <section id="screenshots" aria-labelledby="screenshots-title">
       <h2 id="screenshots-title">スクリーンショット</h2>
-      <div class="grid">
-        <div class="panel">
-          <div class="placeholder">Windows版の画像を準備中</div>
-          <p class="screen-label">Windows版</p>
+      <p class="muted small">画像をクリック・タップすると、元のサイズで開きます。</p>
+      <div class="panel screenshot-group">
+        <h3>Windows版</h3>
+        <div class="screenshot-pair">
+          <figure>
+            <a class="screenshot-link" href="windows-comments.png" target="_blank" rel="noopener" aria-label="Windows版のコメント表示画面を拡大（新しいタブ）">
+              <img src="windows-comments.png" alt="Windows版 RC4：リアルタイムコメント一覧とコメント入力欄" loading="lazy" decoding="async">
+            </a>
+            <figcaption>コメント表示</figcaption>
+          </figure>
+          <figure>
+            <a class="screenshot-link" href="windows-channels.png" target="_blank" rel="noopener" aria-label="Windows版のチャンネル選択画面を拡大（新しいタブ）">
+              <img src="windows-channels.png" alt="Windows版 RC4：チャンネル名と放送中の番組を表示した選択画面" loading="lazy" decoding="async">
+            </a>
+            <figcaption>チャンネル選択</figcaption>
+          </figure>
         </div>
-        <div class="panel">
-          <div class="placeholder">Android版の画像を準備中</div>
-          <p class="screen-label">Android版</p>
+      </div>
+      <div class="panel screenshot-group">
+        <h3>Android版（スマートフォン）</h3>
+        <div class="screenshot-pair">
+          <figure>
+            <a class="screenshot-link" href="android-comments.png" target="_blank" rel="noopener" aria-label="Androidスマホ版のコメント表示画面を拡大（新しいタブ）">
+              <img src="android-comments.png" alt="Androidスマホ版：縦画面のコメント一覧とコメント入力欄" loading="lazy" decoding="async">
+            </a>
+            <figcaption>コメント表示</figcaption>
+          </figure>
+          <figure>
+            <a class="screenshot-link" href="android-channels.png" target="_blank" rel="noopener" aria-label="Androidスマホ版のチャンネル選択画面を拡大（新しいタブ）">
+              <img src="android-channels.png" alt="Androidスマホ版：チャンネル選択メニュー" loading="lazy" decoding="async">
+            </a>
+            <figcaption>チャンネル選択</figcaption>
+          </figure>
         </div>
       </div>
     </section>
