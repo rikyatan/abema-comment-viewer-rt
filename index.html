@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description"
+        content="ABEMA Comment Viewer RTの紹介・配布サイト。Windows版・Android版のダウンロード情報、更新履歴、使い方をご案内します。">
+  <title>ABEMA Comment Viewer RT｜紹介・ダウンロード</title>
+  <style>
+    :root {
+      --bg: #15181e;
+      --panel: #1e232c;
+      --text: #e5e9f0;
+      --muted: #abb5c4;
+      --accent: #93c5fd;
+      --border: #353e4d;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+    }
+
+    a { color: var(--accent); }
+    a:hover { text-decoration: underline; }
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    .wrap {
+      width: min(100% - 40px, 1000px);
+      margin-inline: auto;
+    }
+
+    header { border-bottom: 1px solid var(--border); }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      padding-block: 18px;
+    }
+
+    .brand {
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      font-size: 14px;
+    }
+
+    nav a { color: var(--muted); text-decoration: none; }
+
+    .hero { padding: 78px 0 64px; }
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .15em;
+    }
+
+    h1 {
+      margin: 16px 0;
+      font-size: clamp(30px, 6vw, 52px);
+      line-height: 1.3;
+      letter-spacing: -.03em;
+    }
+
+    .lead { max-width: 640px; color: var(--muted); }
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 11px 22px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #152337;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: #b5d8ff;
+      text-decoration: none;
+    }
+
+    section { padding: 32px 0; scroll-margin-top: 24px; }
+    h2 { margin: 0 0 20px; font-size: 24px; }
+    h3 { margin: 0 0 12px; font-size: 21px; }
+    p { margin: 0 0 16px; }
+    p:last-child { margin-bottom: 0; }
+
+    .panel {
+      padding: 28px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .muted { color: var(--muted); }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 11px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .platform {
+      margin: 0 0 16px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .1em;
+    }
+
+    .placeholder {
+      display: grid;
+      min-height: 180px;
+      place-items: center;
+      padding: 24px;
+      border: 1px dashed #526075;
+      border-radius: 12px;
+      color: var(--muted);
+      text-align: center;
+      background: #191e26;
+    }
+
+    .screen-label { margin-top: 14px; font-weight: 700; }
+    .download-status { margin-top: 22px; }
+
+    ul { margin: 0; padding-left: 1.4em; }
+    li + li { margin-top: 8px; }
+
+    footer {
+      margin-top: 48px;
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding: 48px 0 32px; }
+      .panel { padding: 22px; }
+      nav { gap: 8px 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body id="top">
+  <header>
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">ABEMA Comment Viewer RT</a>
+      <nav aria-label="ページ内メニュー">
+        <a href="#about">アプリ説明</a>
+        <a href="#screenshots">画面</a>
+        <a href="#download">ダウンロード</a>
+        <a href="#history">更新履歴</a>
+        <a href="#notes">注意事項</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <p class="eyebrow">COMMENT VIEWER</p>
+      <h1>ABEMA<br>Comment Viewer RT</h1>
+      <p class="lead">
+        ABEMAのコメントを閲覧するためのアプリです。<br>
+        このサイトでは、アプリの紹介とWindows版・Android版の
+        配布情報をご案内します。
+      </p>
+      <a class="button" href="#download">ダウンロード情報を見る</a>
+    </div>
+
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">アプリについて</h2>
+      <div class="panel">
+        <p>
+          ABEMA Comment Viewer RTは、ABEMAのコメントを
+          閲覧するためのコメントビューアです。
+        </p>
+        <p class="muted">
+          詳しい機能や使い方、対応環境は、
+          各バージョンの配布開始に合わせて掲載します。
+        </p>
+      </div>
+    </section>
+
+    <section id="screenshots" aria-labelledby="screenshots-title">
+      <h2 id="screenshots-title">スクリーンショット</h2>
+      <div class="grid">
+        <div class="panel">
+          <div class="placeholder">Windows版の画像を準備中</div>
+          <p class="screen-label">Windows版</p>
+        </div>
+        <div class="panel">
+          <div class="placeholder">Android版の画像を準備中</div>
+          <p class="screen-label">Android版</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" aria-labelledby="download-title">
+      <h2 id="download-title">ダウンロード</h2>
+      <div class="grid">
+        <article class="panel">
+          <p class="platform">WINDOWS</p>
+          <h3>Windows版</h3>
+          <p class="muted">
+            Portable ZIP形式で配布予定です。
+            公開時にバージョンと導入手順を掲載します。
+          </p>
+          <!-- 配布開始時にZIPへのリンクを追加します -->
+          <p class="download-status">
+            <span class="badge">ダウンロード準備中</span>
+          </p>
+        </article>
+
+        <article class="panel">
+          <p class="platform">ANDROID</p>
+          <h3>Android版</h3>
+          <p class="muted">
+            APK形式で配布予定です。
+            公開時に対応するAndroidのバージョンと導入手順を掲載します。
+          </p>
+          <!-- 配布開始時にAPKへのリンクを追加します -->
+          <p class="download-status">
+            <span class="badge">ダウンロード準備中</span>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="history" aria-labelledby="history-title">
+      <h2 id="history-title">更新履歴</h2>
+      <div class="panel">
+        <p class="muted">
+          各バージョンの配布開始後に、
+          変更点や修正内容をこちらへ掲載します。
+        </p>
+      </div>
+    </section>
+
+    <section id="notes" aria-labelledby="notes-title">
+      <h2 id="notes-title">注意事項</h2>
+      <div class="panel">
+        <ul>
+          <li>
+            本アプリは非公式のアプリです。
+            ABEMAの運営元が提供するものではありません。
+          </li>
+          <li>
+            ABEMA側の仕様変更などにより、
+            一部の機能が利用できなくなる場合があります。
+          </li>
+          <li>
+            ダウンロード前に、各バージョンの対応環境と
+            注意事項をご確認ください。
+          </li>
+          <li>
+            このサイトには掲示板・コメント欄を設けていません。
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>ABEMA Comment Viewer RT — 紹介・配布サイト</p>
+      <a href="#top">ページ上部へ戻る ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
