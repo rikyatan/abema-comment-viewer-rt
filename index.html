@@ -239,7 +239,7 @@
         ABEMAのリアルタイムコメントを、<br>
         パソコンでもスマートフォンでも快適に閲覧・投稿🐸
       </p>
-      <span class="badge">Windows版 1.10</span>
+      <span class="badge">Windows版 1.50</span>
       <span class="badge">Android版 1.10</span>
       <div>
         <a class="button" href="#download">ダウンロード情報を見る</a>
@@ -345,47 +345,45 @@
       <div class="grid">
         <article class="panel">
           <p class="platform">WINDOWS</p>
-          <h3>Windows版 1.10</h3>
+          <h3>Windows版 1.50</h3>
           <p class="muted">
             更新日：2026年10月3日<br>
             対応環境：Windows 10 / 11<br>
             配布形式：Portable ZIP<br>
             ファイル名：<br>
-            ABEMA.Comment.Viewer.RT.1.10.zip<br>
-            ファイルサイズ：53.57 MiB（56,172,238バイト）
+            ABEMA Comment Viewer RT 1.50 Windows x64.zip<br>
+            ファイルサイズ：49.01 MiB（51,387,811バイト）
           </p>
 
-          <!-- Windows版1.10の配布ZIP -->
           <p class="download-action">
-            <a class="button" href="https://github.com/rikyatan/abema-comment-viewer-rt/releases/download/windows-v1.10/ABEMA.Comment.Viewer.RT.1.10.zip">Windows版 1.10をダウンロード（ZIP）</a>
+            <a class="button" href="https://github.com/rikyatan/abema-comment-viewer-rt/releases/download/windows-v1.50/ABEMA%20Comment%20Viewer%20RT%201.50%20Windows%20x64.zip">Windows版 1.50をダウンロード（ZIP）</a>
           </p>
 
           <h4>導入方法</h4>
           <p>
             ZIPファイルをダウンロードして展開し、
-            展開先にあるアプリのEXEファイルを起動してください。
+            展開先にある <code>ABEMA Comment Viewer RT.exe</code> を起動してください。
             インストールは不要です。
           </p>
 
+          <h4>Ver.1.10以前から更新する場合</h4>
+          <p class="muted small">
+            既存フォルダへ上書きせず、新しいフォルダへ展開してください。
+            以前のフォルダから <code>settings</code>、<code>token</code>、必要に応じて <code>log</code> をコピーすると引き継げます。
+            詳細はZIPに同梱の <code>更新方法.txt</code> を参照してください。
+          </p>
+
           <h4>配布ZIPの検査結果</h4>
-          <p class="muted small">
-            本ソフトはPyInstallerで生成しているため、
-            一部のセキュリティソフトでヒューリスティック検出される場合があります。
-          </p>
           <p>
-            <a href="https://www.virustotal.com/gui/file/a76832e3e5fd8920817a7d2e24d37540974c2f65f4ed5def4b8740e6564b709a?nocache=1">
-              VirusTotalでZIPの検査結果を確認
-            </a>
+            <a href="https://www.virustotal.com/gui/file/293a2445aa82d9e387cbe53997a23ac535f268474b86bc9cf836fd9e430fab8f?nocache=1">VirusTotalでZIPの検査結果を確認</a>
           </p>
           <p class="muted small">
-            検査対象は、Windows版1.10の配布ZIPファイルです。
+            検査対象は、Windows版1.50の配布ZIPファイルです。
           </p>
 
           <h4>配布ZIPのSHA-256</h4>
-          <p class="muted small">
-            対象：ABEMA.Comment.Viewer.RT.1.10.zip
-          </p>
-          <code class="hash">A76832E3E5FD8920817A7D2E24D37540974C2F65F4ED5DEF4B8740E6564B709A</code>
+          <p class="muted small">対象：ABEMA Comment Viewer RT 1.50 Windows x64.zip</p>
+          <code class="hash">293A2445AA82D9E387CBE53997A23AC535F268474B86BC9CF836FD9E430FAB8F</code>
         </article>
 
         <article class="panel">
@@ -444,6 +442,11 @@
         <div class="panel">
           <h3>Windows版</h3>
           <ul class="history">
+            <li>
+              <time datetime="2026-10-03">2026/10/03</time>
+              <strong>1.50</strong>
+              <p>Windows配布版をNuitkaへ変更。ログビューアの表示を調整。</p>
+            </li>
             <li>
               <time datetime="2026-10-03">2026/10/03</time>
               <strong>1.10</strong>
