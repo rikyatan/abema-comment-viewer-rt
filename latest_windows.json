@@ -1,0 +1,5 @@
+{
+  "version": "1.70",
+  "notes": "スリープ復帰後のコメント取得を改善しました。\n更新確認機能を追加しました。",
+  "downloadUrl": "https://github.com/rikyatan/abema-comment-viewer-rt/releases/tag/windows-v1.70"
+}
