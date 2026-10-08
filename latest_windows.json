@@ -1,5 +1,5 @@
 {
-  "version": "1.70",
-  "notes": "スリープ復帰後のコメント取得を改善しました。\n更新確認機能を追加しました。",
-  "downloadUrl": "https://github.com/rikyatan/abema-comment-viewer-rt/releases/tag/windows-v1.70"
+  "version": "1.75",
+  "notes": "追随ユーザーの色表示を「ライン」と「背景」から選択可能にしました。\n追随ユーザーに表示名を設定できるようにしました。\n追随ユーザー管理画面の見やすさを改善しました。",
+  "downloadUrl": "https://github.com/rikyatan/abema-comment-viewer-rt/releases/tag/windows-v1.75"
 }
