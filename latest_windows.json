@@ -1,5 +1,5 @@
 {
-  "version": "1.75",
-  "notes": "追随ユーザーの色表示を「ライン」と「背景」から選択可能にしました。\n追随ユーザーに表示名を設定できるようにしました。\n追随ユーザー管理画面の見やすさを改善しました。",
-  "downloadUrl": "https://github.com/rikyatan/abema-comment-viewer-rt/releases/tag/windows-v1.75"
+  "version": "1.80",
+  "notes": "コメント開始時・チャンネル切替時に、最新300件まで取得できるようにしました。\n番組分析機能を追加しました（投稿数ランキング・投稿回数分布・単発投稿の確認）。\n追随ユーザー管理で、直近コメントと最終受信時刻を確認できるようにしました。\n一部のログをログビューアで開けない不具合を修正しました。",
+  "downloadUrl": "https://rikyatan.github.io/abema-comment-viewer-rt/#download"
 }

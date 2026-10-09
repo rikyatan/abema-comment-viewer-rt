@@ -1,0 +1,374 @@
+<html lang="ja"><head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="48x48" href="app_icon_48.png">
+  <meta name="google-site-verification" content="7f9lXrlTi7DhDhZqCiMryH7j4II9IpsEvYirHobIiOw">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="ABEMAのリアルタイムコメントを快適に閲覧・投稿。ABEMA Comment Viewer RTのWindows版・Android版の紹介、配布情報、更新履歴を掲載しています。">
+  <title>ABEMA Comment Viewer RT｜Windows・Android</title>
+  <style>
+    :root {
+      --bg: #15181e;
+      --panel: #1e232c;
+      --text: #e5e9f0;
+      --muted: #abb5c4;
+      --accent: #93c5fd;
+      --border: #353e4d;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      line-height: 1.9;
+      overflow-wrap: anywhere;
+    }
+    a { color: var(--accent); }
+    a:hover { text-decoration: underline; }
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+    }
+    .wrap {
+      width: min(100% - 40px, 1000px);
+      margin-inline: auto;
+    }
+    header { border-bottom: 1px solid var(--border); }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      padding-block: 18px;
+    }
+    .brand {
+      color: var(--text);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      font-size: 14px;
+    }
+    nav a { color: var(--muted); text-decoration: none; }
+    .hero { padding: 78px 0 64px; }
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .15em;
+    }
+    h1 {
+      margin: 16px 0;
+      font-size: clamp(30px, 6vw, 52px);
+      line-height: 1.3;
+      letter-spacing: -.03em;
+    }
+    .lead { max-width: 680px; color: var(--muted); }
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 11px 22px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #152337;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .button:hover {
+      background: #b5d8ff;
+      text-decoration: none;
+    }
+    section { padding: 32px 0; scroll-margin-top: 24px; }
+    h2 { margin: 0 0 20px; font-size: 24px; }
+    h3 { margin: 0 0 12px; font-size: 21px; }
+    h4 { margin: 24px 0 10px; font-size: 16px; }
+    p { margin: 0 0 16px; }
+    p:last-child { margin-bottom: 0; }
+    .panel {
+      min-width: 0;
+      padding: 28px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+    .muted { color: var(--muted); }
+    .small { font-size: 14px; }
+    .spaced { margin-top: 24px; }
+    .download-action { margin: 0 0 16px; }
+    .download-action .button { margin-top: 0; }
+    .badge {
+      display: inline-block;
+      padding: 3px 11px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .platform {
+      margin: 0 0 16px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .1em;
+    }
+    .placeholder {
+      display: grid;
+      min-height: 180px;
+      place-items: center;
+      padding: 24px;
+      border: 1px dashed #526075;
+      border-radius: 12px;
+      color: var(--muted);
+      text-align: center;
+      background: #191e26;
+    }
+    .screen-label { margin-top: 14px; font-weight: 700; }
+    .hash {
+      display: block;
+      margin-top: 8px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      font-family: Consolas, monospace;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+      user-select: all;
+    }
+    ul, ol { margin: 0; padding-left: 1.4em; }
+    li + li { margin-top: 8px; }
+    .history { margin: 0; padding: 0; list-style: none; }
+    .history li + li {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .history time {
+      display: block;
+      color: var(--accent);
+      font-size: 14px;
+    }
+    .history strong { display: block; }
+    .history p { margin: 4px 0 0; color: var(--muted); }
+    footer {
+      margin-top: 48px;
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding: 48px 0 32px; }
+      .panel { padding: 22px; }
+      nav { gap: 8px 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+    .screenshot-group + .screenshot-group { margin-top: 24px; }
+    .screenshot-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .screenshot-pair figure { min-width: 0; margin: 0; }
+    .screenshot-link {
+      display: block;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg);
+      cursor: zoom-in;
+    }
+    .screenshot-link:hover { border-color: var(--accent); }
+    .screenshot-link img {
+      display: block;
+      width: 100%;
+      height: 460px;
+      object-fit: contain;
+    }
+    .screenshot-pair figcaption {
+      margin-top: 10px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+    @media (max-width: 560px) {
+      .screenshot-pair { grid-template-columns: 1fr; }
+      .screenshot-link img { height: min(70vh, 460px); }
+    }
+  </style>
+  <!-- GitHub Pages refresh: Windows v1.80 -->
+</head>
+
+<body id="top">
+  <header>
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">ABEMA Comment Viewer RT</a>
+      <nav aria-label="ページ内メニュー">
+        <a href="index.html#about">アプリ説明</a>
+        <a href="index.html#screenshots">画面</a>
+        <a href="index.html#download">ダウンロード</a>
+        <a href="#history">更新履歴</a>
+        <a href="index.html#notes">注意事項</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="history" aria-labelledby="history-title">
+      <h1 id="history-title">過去の更新履歴</h1>
+      <p class="muted small">Windows版・Android版の公開履歴です。</p>
+      <div class="grid">
+        <div class="panel">
+          <h3>Windows版</h3>
+          <ul class="history">
+            <li>
+              <time datetime="2026-10-09">2026/10/09</time>
+              <strong>1.80</strong>
+              <p>コメント開始時・チャンネル切替時に、最新300件まで取得可能に。番組分析機能を追加し、追随ユーザー管理で直近コメントと最終受信時刻を確認可能に。一部のログをログビューアで開けない不具合を修正。</p>
+            </li>
+            <li>
+              <time datetime="2026-10-08">2026/10/08</time>
+              <strong>1.75</strong>
+              <p>追随ユーザーの色表示を「ライン」と「背景」から選択可能に。追随ユーザーに表示名を設定できるようにし、管理画面の見やすさを改善。</p>
+            </li>
+            <li>
+              <time datetime="2026-10-06">2026/10/06</time>
+              <strong>1.70</strong>
+              <p>スリープ復帰後のコメント取得を改善。更新確認機能を追加。</p>
+            </li>
+            <li>
+              <time datetime="2026-10-04">2026/10/04</time>
+              <strong>1.65</strong>              <p>予約コメント機能を追加。ログビューアで検索結果をCSV／Excel形式で保存可能に。</p>            </li>            <li>              <time datetime="2026-10-03">2026/10/03</time>              <strong>1.50</strong>
+              <p>Windows配布版をNuitkaへ変更。ログビューアの表示を調整。</p>
+            </li>
+            <li>
+              <time datetime="2026-10-03">2026/10/03</time>
+              <strong>1.10</strong>
+              <p>ユーザーコメントリストの更新操作と統計情報表示を改善。統計情報の表示位置を選択可能に。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-30">2026/09/30</time>
+              <strong>1.00</strong>
+              <p>正式版1.00。配布ZIPのサイズを削減。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-30">2026/09/30</time>
+              <strong>RC4</strong>
+              <p>チャンネル表示・トークン周りの表示などを変更。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-29">2026/09/29</time>
+              <strong>RC3</strong>
+              <p>絵文字表示を調整。スリープ復帰時の挙動などを変更。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-27">2026/09/27</time>
+              <strong>RC2.1</strong>
+              <p>一部機能を削除。ウィンドウ位置がずれる場合があった問題を修正。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-25">2026/09/25</time>
+              <strong>RC1.5</strong>
+              <p>NGユーザー管理画面などを追加。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-24">2026/09/24</time>
+              <strong>RC1 改訂ビルド</strong>
+              <p>Windows製品情報を追加。UPXを無効化。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-23">2026/09/23</time>
+              <strong>RC1</strong>
+              <p>インストール不要のポータブル版を公開。</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>Android版</h3>
+          <ul class="history">
+            <li>
+              <time datetime="2026-10-07">2026/10/07</time>
+              <strong>1.60</strong>
+              <p>更新確認機能を追加。</p>
+            </li>
+            <li>
+              <time datetime="2026-10-06">2026/10/06</time>
+              <strong>1.50</strong>
+              <p>アプリ切り替え・画面OFFからの復帰時も、コメント履歴をできるだけ維持するよう改善。右側のスクロールバーから高速スクロールできる機能を追加。細かな動作改善・不具合修正。</p>
+            </li>
+            <li>
+              <time datetime="2026-10-05">2026/10/05</time>
+              <strong>1.21</strong>
+              <p>コメントを軽くタップすると、ユーザーIDとコメント取得開始後の書き込み回数を吹き出しで確認できるようにしました。</p>
+            </li>
+            <li>
+              <time datetime="2026-10-02">2026/10/02</time>
+              <strong>1.10</strong>
+              <p>細かな不具合を修正。</p>
+            </li>
+            <li>
+              <time datetime="2026-10-02">2026/10/02</time>
+              <strong>1.00</strong>
+              <p>スクロール時の挙動を改善。</p>
+            </li>
+            <li>
+              <time datetime="2026-10-01">2026/10/01</time>
+              <strong>v0.98</strong>
+              <p>キーボード表示中でも、コメント一覧だけを上下にスクロールできるようにしました。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-30">2026/09/30</time>
+              <strong>v0.97</strong>
+              <p>細かな不具合を修正。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-30">2026/09/30</time>
+              <strong>v0.96</strong>
+              <p>コメント入力周りを調整。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-29">2026/09/29</time>
+              <strong>v0.95</strong>
+              <p>タブレットモードなどを追加。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-28">2026/09/28</time>
+              <strong>v0.81</strong>
+              <p>設定画面を変更。</p>
+            </li>
+            <li>
+              <time datetime="2026-09-26">2026/09/26</time>
+              <strong>v0.80</strong>
+              <p>Android版を公開しました。</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <p><a class="button" href="index.html">トップページへ戻る</a></p>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>ABEMA Comment Viewer RT — 紹介・配布サイト</p>
+      <a href="#top">ページ上部へ戻る ↑</a>
+    </div>
+  </footer>
+</body></html>
