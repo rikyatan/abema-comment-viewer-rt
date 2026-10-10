@@ -551,4 +551,15 @@
   </footer>
 
 
+  <script>
+    (() => {
+      if (new URLSearchParams(window.location.search).get("platform") !== "android") return;
+      const target = document.getElementById("android-download");
+      if (!target) return;
+      const previousBehavior = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = "auto";
+      target.scrollIntoView({ block: "start" });
+      document.documentElement.style.scrollBehavior = previousBehavior;
+    })();
+  </script>
 </body></html>
