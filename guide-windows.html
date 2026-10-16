@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="ABEMA Comment Viewer RT Windows版の使い方と主な機能を紹介するサンプルページです。">
+  <title>使い方・主な機能｜ABEMA Comment Viewer RT</title>
+  <style>
+    :root { --bg:#15181e; --panel:#1e232c; --text:#e5e9f0; --muted:#abb5c4; --accent:#93c5fd; --border:#353e4d; --good:#86efac; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans JP","Yu Gothic",Meiryo,sans-serif; line-height:1.9; overflow-wrap:anywhere; }
+    a { color:var(--accent); }
+    a:hover { text-decoration:underline; }
+    a:focus-visible { outline:3px solid var(--accent); outline-offset:5px; }
+    .wrap { width:min(100% - 40px,1000px); margin-inline:auto; }
+    header { border-bottom:1px solid var(--border); }
+    .header-inner { display:flex; justify-content:space-between; align-items:center; gap:12px 24px; flex-wrap:wrap; padding-block:18px; }
+    .brand { color:var(--text); font-weight:700; text-decoration:none; }
+    nav { display:flex; flex-wrap:wrap; gap:8px 20px; font-size:14px; }
+    nav a { color:var(--muted); text-decoration:none; }
+    .hero { padding:68px 0 46px; }
+    .eyebrow,.step { color:var(--accent); font-size:13px; font-weight:700; letter-spacing:.12em; }
+    h1 { margin:14px 0; font-size:clamp(30px,5.5vw,48px); line-height:1.3; letter-spacing:-.03em; }
+    h2 { margin:0 0 18px; font-size:26px; }
+    h3 { margin:0 0 10px; font-size:20px; }
+    p { margin:0 0 14px; }
+    section { padding:28px 0; scroll-margin-top:24px; }
+    .lead,.muted { color:var(--muted); }
+    .panel { padding:26px; border:1px solid var(--border); border-radius:16px; background:var(--panel); }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; align-items:start; }
+    .feature { min-height:210px; }
+    .badge { display:inline-block; margin:4px 6px 0 0; padding:3px 10px; border:1px solid var(--border); border-radius:999px; color:var(--muted); font-size:13px; }
+    .image-placeholder { display:grid; min-height:230px; place-items:center; margin-top:18px; padding:22px; border:1px dashed #60708a; border-radius:12px; background:#191e26; color:var(--muted); text-align:center; }
+    .guide-image { display:block; width:100%; margin-top:18px; border:1px solid var(--border); border-radius:12px; }
+    .guide-pair { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:18px; }
+    .guide-pair .guide-image { margin-top:0; }
+    .analysis-feature { grid-column:1 / -1; }
+    .guide-trio { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:18px; }
+    .guide-trio .guide-image { margin-top:0; }
+    .steps { display:grid; gap:16px; }
+    .step-card { display:grid; grid-template-columns:38px 1fr; gap:16px; align-items:start; padding:22px; border:1px solid var(--border); border-radius:14px; background:var(--panel); }
+    .step-number { display:grid; width:38px; height:38px; place-items:center; border-radius:50%; background:#284769; color:#dbeafe; font-weight:700; }
+    ul { margin:0; padding-left:1.4em; }
+    li + li { margin-top:7px; }
+    .notice { border-left:4px solid var(--good); }
+    .notice strong { color:var(--good); }
+    code { padding:1px 5px; border-radius:4px; background:#12161c; }
+    footer { margin-top:40px; padding:28px 0; border-top:1px solid var(--border); color:var(--muted); font-size:13px; }
+    @media (max-width:640px) { .grid { grid-template-columns:1fr; } .guide-pair, .guide-trio { grid-template-columns:1fr; } .hero { padding:46px 0 30px; } .panel { padding:21px; } nav { gap:8px 16px; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body id="top">
+  <header>
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html">ABEMA Comment Viewer RT</a>
+      <nav aria-label="ページ内メニュー">
+        <a href="#start">はじめに</a>
+        <a href="#features">主な機能</a>
+        <a href="#steps">基本の使い方</a>
+        <a href="#tips">困ったとき</a>
+        <a href="index.html">配布ページへ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <p class="eyebrow">WINDOWS VERSION</p>
+      <h1>使い方・主な機能</h1>
+      <p class="lead">ABEMA Comment Viewer RTを初めて使う方向けの案内ページです。<br>画面画像を追加すると、操作の流れをより分かりやすく紹介できます。</p>
+      <span class="badge">画像は後から差し替え可能</span>
+      <span class="badge">Windows版 2.00対応</span>
+    </div>
+
+    <section id="start" aria-labelledby="start-title">
+      <h2 id="start-title">はじめに</h2>
+      <div class="panel notice">
+        <p><strong>ABEMAのコメントを閲覧・投稿するためのWindows向けビューアです。</strong></p>
+        <p class="muted">ZIPを展開して <code>ABEMA Comment Viewer RT.exe</code> を起動します。初回、またはトークンの期限切れ時は、画面の案内に従ってトークンを取得してください。</p>
+      </div>
+    </section>
+
+    <section id="features" aria-labelledby="features-title">
+      <h2 id="features-title">主な機能</h2>
+      <div class="grid">
+        <article class="panel feature">
+          <p class="step">01 / コメントを読む・投稿する</p>
+          <h3>リアルタイムコメント</h3>
+          <p class="muted">チャンネルを選ぶとコメントを受信できます。コメント入力欄からの投稿にも対応しています。</p>
+          <a href="guide-comments.png" target="_blank" rel="noopener" aria-label="リアルタイムコメント表示画面を拡大（新しいタブ）"><img class="guide-image" src="guide-comments.png" alt="ABEMA Comment Viewer RTのリアルタイムコメント一覧。時刻、コメント、ユーザーID、投稿回数とコメント入力欄を表示"></a>
+        </article>
+        <article class="panel feature">
+          <p class="step">02 / 複数チャンネルを見る</p>
+          <h3>タブ式マルチビュー</h3>
+          <p class="muted">メインとサブで別のチャンネルを同時に受信できます。タブごとに履歴・未読・検索・分析・ログ保存を保持します。</p>
+          <div class="guide-pair">
+            <a href="guide-multiview-main.png" target="_blank" rel="noopener" aria-label="マルチビューのメインタブを拡大（新しいタブ）"><img class="guide-image" src="guide-multiview-main.png" alt="将棋チャンネルをメイン、ABEMA NEWSチャンネルをサブとして表示するタブ式マルチビュー"></a>
+            <a href="guide-multiview-sub.png" target="_blank" rel="noopener" aria-label="マルチビューのサブタブを拡大（新しいタブ）"><img class="guide-image" src="guide-multiview-sub.png" alt="ABEMA NEWSチャンネルのサブタブを選択したタブ式マルチビュー"></a>
+          </div>
+        </article>
+        <article class="panel feature">
+          <p class="step">03 / 必要なコメントを探す</p>
+          <h3>検索・ユーザー確認</h3>
+          <p class="muted"><kbd>Ctrl</kbd> + <kbd>F</kbd> で検索欄を開けます。コメントやユーザーIDで絞り込めます。</p>
+          <div class="guide-pair">
+            <a href="guide-search.png" target="_blank" rel="noopener" aria-label="コメント検索欄を拡大（新しいタブ）"><img class="guide-image" src="guide-search.png" alt="コメントとユーザーIDを検索する入力欄を開いたコメント一覧"></a>
+            <a href="guide-user-filter.png" target="_blank" rel="noopener" aria-label="ユーザーIDによる絞り込み結果を拡大（新しいタブ）"><img class="guide-image" src="guide-user-filter.png" alt="ユーザーIDを入力し、そのユーザーのコメントだけを絞り込んだ一覧"></a>
+          </div>
+        </article>
+        <article class="panel feature analysis-feature">
+          <p class="step">04 / 番組の反応を見る</p>
+          <h3>番組分析</h3>
+          <p class="muted">投稿数ランキング、投稿回数分布、コメント推移グラフを表示できます。推移グラフから該当時刻のコメントへ移動できます。</p>
+          <div class="guide-trio">
+            <a href="guide-analysis-ranking.png" target="_blank" rel="noopener" aria-label="投稿数ランキングを拡大（新しいタブ）"><img class="guide-image" src="guide-analysis-ranking.png" alt="番組分析の投稿数ランキング。投稿数上位20人を棒グラフで表示"></a>
+            <a href="guide-analysis-distribution.png" target="_blank" rel="noopener" aria-label="投稿回数分布を拡大（新しいタブ）"><img class="guide-image" src="guide-analysis-distribution.png" alt="番組分析の投稿回数分布。投稿回数ごとの参加人数と割合を棒グラフで表示"></a>
+            <a href="guide-analysis-trend.png" target="_blank" rel="noopener" aria-label="コメント推移グラフを拡大（新しいタブ）"><img class="guide-image" src="guide-analysis-trend.png" alt="番組分析のコメント推移グラフ。時間帯ごとのコメント数を棒グラフで表示"></a>
+          </div>
+        </article>
+        <article class="panel feature">
+          <p class="step">05 / 見やすく整える</p>
+          <h3>追随・NG・表示設定</h3>
+          <p class="muted">追随ユーザーとNGユーザーはチャンネルごとに保存されます。表示項目では、時刻・ユーザーID・回数・番組情報・統計情報などから必要なものだけを選び、コメント欄を見やすくできます。</p>
+          <a href="guide-follow-users.png" target="_blank" rel="noopener" aria-label="追随ユーザー管理画面を拡大（新しいタブ）"><img class="guide-image" src="guide-follow-users.png" alt="将棋チャンネルの追随ユーザー管理画面。追随ユーザーの一覧、色の表示、表示名、お気に入り切替、色変更、削除、順序変更の操作を表示"></a>
+          <p class="muted" style="margin-top:10px; font-size:14px;">追随ユーザー管理画面。表示項目のメニュー画像は、後から同じ箇所に追加できます。</p>
+        </article>
+        <article class="panel feature">
+          <p class="step">06 / 後から見返す</p>
+          <h3>ログ保存・ログビューア</h3>
+          <p class="muted">表示中のタブのコメントを保存できます。保存したログはログビューアで開き、検索や分析に利用できます。</p>
+          <a href="guide-log-viewer.png" target="_blank" rel="noopener" aria-label="ログビューアを拡大（新しいタブ）"><img class="guide-image" src="guide-log-viewer.png" alt="保存ログを開いたログビューア。コメント、ユーザーID、表示名を検索でき、分析とエクスポートを利用できる"></a>
+        </article>
+      </div>
+    </section>
+
+    <section id="steps" aria-labelledby="steps-title">
+      <h2 id="steps-title">基本の使い方</h2>
+      <div class="steps">
+        <article class="step-card">
+          <div class="step-number">1</div>
+          <div><h3>アプリを起動する</h3><p class="muted">初回はトークン取得画面が表示されます。案内に従って取得すると、通常は次回以降そのまま利用できます。</p></div>
+        </article>
+        <article class="step-card">
+          <div class="step-number">2</div>
+          <div><h3>チャンネルを選ぶ</h3><p class="muted">画面左上のチャンネル選択から、視聴したいABEMAチャンネルを選択します。現在配信中の番組情報とコメントが表示されます。</p></div>
+        </article>
+        <article class="step-card">
+          <div class="step-number">3</div>
+          <div><h3>コメントを確認する</h3><p class="muted">受信中は新しいコメントが一覧に追加されます。読み返している途中では、<strong>最新コメントへ</strong>ボタンから最新位置へ戻れます。</p></div>
+        </article>
+        <article class="step-card">
+          <div class="step-number">4</div>
+          <div><h3>必要に応じてタブを追加する</h3><p class="muted">タブ追加ボタンからサブタブを開くと、別チャンネルも同時に受信できます。未読数は各タブで確認できます。</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="tips" aria-labelledby="tips-title">
+      <h2 id="tips-title">困ったとき</h2>
+      <div class="grid">
+        <article class="panel">
+          <h3>トークンを取り直したい</h3>
+          <p class="muted">設定内のトークン画面から、状態を確認できます。再取得する場合は <strong>「再取得（localStorageを削除）」</strong> を使用します。</p>
+        </article>
+        <article class="panel">
+          <h3>コメントが表示されない</h3>
+          <p class="muted">チャンネルと番組の配信状況を確認してください。一時チャンネルなどが終了した場合は、タブ上に状態を表示したまま受信を停止します。</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">ABEMA Comment Viewer RT　<a href="index.html">配布ページへ戻る</a></div>
+  </footer>
+</body>
+</html>
+
